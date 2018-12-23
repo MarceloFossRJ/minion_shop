@@ -35,11 +35,6 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platform: :mri
-end
-
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'web-console', '>= 3.3.0'
@@ -58,3 +53,18 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails', '~> 4.7.0.4'
 gem 'figaro', '1.1.1'
 gem "kaminari", "~>1.0.1"
+
+group :development, :test do
+  gem 'byebug', platform: :mri
+  gem "rspec-rails", "~> 3.6.0"
+  gem "factory_bot_rails", "~> 4.10.0"
+  gem "shoulda", "~> 3.6.0"
+  gem 'rails-controller-testing'
+end
+group :test do
+  gem "database_cleaner", "~> 1.6.1"
+  gem "capybara", "~> 2.14.4"
+  gem 'minitest-reporters'
+  gem 'simplecov', require: false
+  gem "faker"
+end
