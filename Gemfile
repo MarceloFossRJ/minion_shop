@@ -53,6 +53,8 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'font-awesome-rails', '~> 4.7.0.4'
 gem 'figaro', '1.1.1'
 gem "kaminari", "~>1.0.1"
+gem 'mini_magick', '~> 4.9.2'
+gem 'carrierwave', '~> 1.2.3'
 
 group :development, :test do
   gem 'byebug', platform: :mri

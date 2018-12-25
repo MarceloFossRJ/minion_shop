@@ -1,0 +1,25 @@
+
+div.table-responsive
+  table.table
+    tbody
+        tr
+          td = image_tag @product.image.big.url
+          td
+            p
+              strong Nome
+              br
+              = @product.name
+            p
+              strong Descrição
+              br
+              = @product.description
+            p
+              =< link_to 'Voltar', products_path, class: 'btn btn-default btn-sm'
+
+
+
+
+
+
+
+

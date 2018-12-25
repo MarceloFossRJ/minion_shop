@@ -1,0 +1,16 @@
+
+
+div class="table-responsive"
+  table class="table table-striped table-hover" id="product-table"
+    tbody
+      - @products.each do |product|
+        tr
+          td = image_tag product.image.thumb.url
+          td
+            = product.name
+            br
+            = truncate(product.description, :length => 100, :omission => '... (continued)')
+          td = link_to 'Reservar', product, class: 'btn btn-default btn-sm'
+
+
+

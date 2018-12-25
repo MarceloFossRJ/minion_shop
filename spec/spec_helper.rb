@@ -14,4 +14,10 @@ RSpec.configure do |config|
   config.default_formatter = 'doc' if config.files_to_run.one?
   config.order = :random
   Kernel.srand config.seed
+
+  config.after(:each) do
+    if Rails.env.test? || Rails.env.cucumber?
+      FileUtils.rm_rf(Dir["#{Rails.root}/spec/support/uploads"])
+    end
+  end
 end
