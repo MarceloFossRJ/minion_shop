@@ -16,7 +16,7 @@ div.table-responsive
               p
                 = simple_form_for :basket, url: basket_path(@product), method: :put do |f|
                   .form-inputs
-                    = f.input :quantidade, input_html: {value: session[:current_basket].nil? ? '1':session[:current_basket][@product.id.to_s]}
+                    = f.input :quantidade, input_html: {value: session[:current_basket].nil? ? '1':session[:current_basket][@product.id.to_s]||'1'}
 
                   .form-actions
                     = f.button :submit, 'Adicionar a cesta'
