@@ -55,6 +55,7 @@ gem 'figaro', '1.1.1'
 gem "kaminari", "~>1.0.1"
 gem 'mini_magick', '~> 4.9.2'
 gem 'carrierwave', '~> 1.2.3'
+gem 'devise', '~> 4.5.0'
 
 group :development, :test do
   gem 'byebug', platform: :mri

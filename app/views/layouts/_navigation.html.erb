@@ -24,6 +24,27 @@
             <i class="fa fa-shopping-cart"></i>&nbsp;<%= session[:basket_total] || 0 %>
           <% end %>
         </li>
+
+        <% if user_signed_in? %>
+          <li>
+            <%= link_to edit_user_registration_path, title: "Editar meus dados", data: { toggle: 'tooltip', placement: 'botton' } do %>
+              <i class="fa fa-user"></i>&nbsp;<%= current_user.name %>
+            <% end %>
+
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, method: :delete, title: "Logout", data: { toggle: 'tooltip', placement: 'botton' } do %>
+              <i class="fa fa-sign-out"></i>&nbsp;Logout
+            <% end %>
+          </li>
+        <% else %>
+          <li>
+            <a href="<%= new_user_registration_path %>">Sign Up</a>
+          </li>
+          <li>
+            <a href="<%= new_user_session_path %>">Login</a>
+          </li>
+        <% end %>
       </ul>
     </div>
 
