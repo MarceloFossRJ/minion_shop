@@ -19,6 +19,11 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
+        <li id="basket_total">
+          <%= link_to basket_index_path, title: "Cesta de compras", data: { toggle: 'tooltip', placement: 'botton' } do %>
+            <i class="fa fa-shopping-cart"></i>&nbsp;<%= session[:basket_total] || 0 %>
+          <% end %>
+        </li>
       </ul>
     </div>
 

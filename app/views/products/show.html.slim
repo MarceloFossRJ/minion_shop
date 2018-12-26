@@ -13,8 +13,15 @@ div.table-responsive
               strong Descrição
               br
               = @product.description
+              p
+                = simple_form_for :basket, url: basket_path(@product), method: :put do |f|
+                  .form-inputs
+                    = f.input :quantidade, input_html: {value: session[:current_basket].nil? ? '1':session[:current_basket][@product.id.to_s]}
+
+                  .form-actions
+                    = f.button :submit, 'Adicionar a cesta'
             p
-              =< link_to 'Voltar', products_path, class: 'btn btn-default btn-sm'
+              =< link_to 'Voltar', products_path, class: 'btn btn-default'
 
 
 

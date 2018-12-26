@@ -1,0 +1,17 @@
+h1 Cesta de compras
+
+
+div class="table-responsive"
+  table class="table table-striped table-hover" id="basket-table"
+    thead
+      tr
+        th Minion
+        th Quantidade
+        th
+
+    tbody
+      - session[:current_basket].each do |k, v|
+        tr
+          td = Product.find(k).name
+          td = v
+          td
