@@ -12,6 +12,10 @@ div class="table-responsive"
     tbody
       - session[:current_basket].each do |k, v|
         tr
-          td = Product.find(k).name
+          td
+            = image_tag Product.find(k).image.thumb.url
+            |&nbsp;&nbsp;&nbsp;&nbsp;
+            = Product.find(k).name
+
           td = v
           td
