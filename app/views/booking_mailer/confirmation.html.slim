@@ -1,6 +1,6 @@
 h1 Confirmação de reserva de Minion Shop
 p = "Olá #{@booking.user.name}."
-p = "Recebemos seu pedido de reserva realizado em #{@booking.date}"
+p = "Recebemos seu pedido de reserva realizado em " + @booking.date.strftime("%d/%m/%Y as %H:%M %Z")
 
 h2 Informações do pedido:
 p = "- Pedido no. #{@booking.id}"

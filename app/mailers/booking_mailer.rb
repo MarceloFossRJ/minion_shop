@@ -1,13 +1,10 @@
 class BookingMailer < ApplicationMailer
 
-  # Subject can be set in your I18n file at config/locales/en.yml
-  # with the following lookup:
-  #
-  #   en.booking_mailer.confirmation.subject
-  #
+  default from: ENV['DEFAULT_EMAIL_FROM']
+
   def confirmation(booking)
     @booking = booking
 
-    mail to: ENV['DEFAULT_EMAIL_TO'], :subject => "Sua reserva de Minions"
+    mail to: @booking.user.email, :subject => "Sua reserva de Minions", :cc => ENV['DEFAULT_EMAIL_CC_TO']
   end
 end
