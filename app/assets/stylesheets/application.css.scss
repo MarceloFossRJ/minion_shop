@@ -43,3 +43,7 @@ ul {
     display: none;
   }
 }
+
+.table > tbody > tr > td {
+  vertical-align: middle;
+}
