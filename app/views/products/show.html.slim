@@ -3,7 +3,7 @@ div.table-responsive
   table.table
     tbody
         tr
-          td = image_tag @product.image.url, class: 'minion-big'
+          td = image_tag "http://www.allezybrewing.com.br/assets/images/id/#{@product.id.to_s}.jpg", class: 'minion-big'
           td
             p
               strong Nome

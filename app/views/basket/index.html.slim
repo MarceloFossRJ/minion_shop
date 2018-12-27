@@ -12,7 +12,7 @@ h1 Cesta de compras
         - session[:current_basket].each do |k, v|
           tr
             td
-              = image_tag Product.find(k).image.url, class: 'minion-thumb'
+              = image_tag "http://www.allezybrewing.com.br/assets/images/id/#{Product.find(k).id.to_s}.jpg", class: 'minion-thumb'
               |&nbsp;&nbsp;&nbsp;&nbsp;
               = Product.find(k).name
 
