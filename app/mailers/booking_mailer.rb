@@ -10,4 +10,4 @@ class BookingMailer < ApplicationMailer
 
     mail to: ENV['DEFAULT_EMAIL_TO'], :subject => "Sua reserva de Minions"
   end
-endv
+end
