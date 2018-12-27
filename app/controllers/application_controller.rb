@@ -9,4 +9,17 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
     devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
+
+  def update_basket_total
+    session[:basket_total] = 0
+    session[:current_basket].each do |k,v|
+      session[:basket_total] += v.to_i
+      session[:current_basket].except!(k) unless v.to_i>0
+    end
+  end
+
+  def clean_basket
+    session[:basket_total] = 0
+    session[:current_basket] = nil
+  end
 end

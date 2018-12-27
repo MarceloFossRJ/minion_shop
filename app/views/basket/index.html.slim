@@ -1,21 +1,24 @@
 h1 Cesta de compras
 
-
-div class="table-responsive"
-  table class="table table-striped table-hover" id="basket-table"
-    thead
-      tr
-        th Minion
-        th Quantidade
-        th
-
-    tbody
-      - session[:current_basket].each do |k, v|
+= simple_form_for :booking, url: bookings_path, method: :post do |f|
+  div class="table-responsive"
+    table class="table table-striped table-hover" id="basket-table"
+      thead
         tr
-          td
-            = image_tag Product.find(k).image.thumb.url
-            |&nbsp;&nbsp;&nbsp;&nbsp;
-            = Product.find(k).name
+          th Minion
+          th Quantidade
 
-          td = v
-          td
+      tbody
+        - session[:current_basket].each do |k, v|
+          tr
+            td
+              = image_tag Product.find(k).image.thumb.url
+              |&nbsp;&nbsp;&nbsp;&nbsp;
+              = Product.find(k).name
+
+            td = f.input "basket[#{k}]", as: :fake, label: false, input_html: { value: v }
+  p
+    =< link_to 'Voltar', products_path, class: 'btn btn-default'
+    =< f.button :submit, "Atualizar cesta", class: 'btn btn-primary', name: "commit"
+    =< f.button :submit, "Reservar", class: 'btn btn-success', name: "commit"
+

@@ -5,16 +5,16 @@ class BasketController < ApplicationController
     end
     session[:current_basket][params[:id]]=params[:basket][:quantidade]
 
-    session[:basket_total] = 0
-    session[:current_basket].each do |k,v|
-      session[:basket_total] += v.to_i
-      session[:current_basket].except!(k) unless v.to_i>0
-    end
+    update_basket_total
 
     redirect_to products_path
   end
 
   def index
-
+    if session[:basket_total] == 0
+      respond_to do |format|
+        format.html { redirect_to products_path, notice: "Cesta está vazia!" }
+      end
+    end
   end
 end

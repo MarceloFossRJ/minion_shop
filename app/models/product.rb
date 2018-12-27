@@ -1,4 +1,5 @@
 class Product < ApplicationRecord
+  has_many :booking_itens
 
   mount_uploader :image, ProductUploader
 
