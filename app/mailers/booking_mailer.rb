@@ -8,6 +8,6 @@ class BookingMailer < ApplicationMailer
   def confirmation(booking)
     @booking = booking
 
-    mail to: "marcelo.foss.rj@gmail.com", :subject => "Sua reserva de Minions"
+    mail to: ENV['DEFAULT_EMAIL_TO'], :subject => "Sua reserva de Minions"
   end
 end
