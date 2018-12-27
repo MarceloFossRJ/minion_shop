@@ -3,7 +3,7 @@ div.table-responsive
   table.table
     tbody
         tr
-          td = image_tag @product.image.big.url
+          td = image_tag @product.image.url, class: 'minion-big'
           td
             p
               strong Nome
@@ -20,6 +20,7 @@ div.table-responsive
 
                   .form-actions
                     =< link_to 'Voltar', products_path, class: 'btn btn-default'
+                    p
                     =< f.button :submit, 'Adicionar a cesta', class: 'btn btn-primary'
 
 
