@@ -8,12 +8,15 @@
         <span class="icon-bar"></span>
       </button>
       <%= link_to "Minion Shop", root_path, class: 'navbar-brand' %>
+      <div id="div-mobile" class="navbar-brand carrinho">
+        <%= link_to basket_index_path, title: "Cesta de compras", data: { toggle: 'tooltip', placement: 'botton' } do %>
+          <i class="fa fa-shopping-cart"></i>&nbsp;<%= session[:basket_total] || 0 %>
+        <% end %>
+      </div>
     </div>
 
 
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="nav navbar-nav">
-      </ul>
 
       <ul class="nav navbar-nav navbar-right">
         <li id="basket_total">

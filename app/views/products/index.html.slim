@@ -6,13 +6,15 @@ div class="table-responsive"
       - @products.each do |product|
         tr
           td
-            = image_tag product.image.thumb.url
+            = link_to 'Reservar', product, class: 'btn btn-default'
+          td
+            = link_to product
+              = image_tag product.image.thumb.url
           td class="table_valign"
-            = product.name
+            = link_to product.name, product
             br
             = truncate(product.description, :length => 100, :omission => '... (continued)')
-          td
-             = link_to 'Reservar', product, class: 'btn btn-primary'
+
 
 
 
