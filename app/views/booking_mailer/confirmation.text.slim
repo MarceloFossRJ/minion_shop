@@ -1,0 +1,9 @@
+' Confirmação de reserva de Minion Shop
+= "\r\n" * 2
+' Olá #{@booking.user.name}.
+' Recebemos seu pedido de reserva realizado em #{@booking.date}
+= "\r\n" * 2
+' Informações do pedido:
+' . Pedido no. #{@booking.id}
+- @booking.booking_items.each do |item|
+  = "Nome: " + item.product.name + " - Quantidade: " + item.quantity.to_s

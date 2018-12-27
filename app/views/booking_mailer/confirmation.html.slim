@@ -1,0 +1,19 @@
+h1 Confirmação de reserva de Minion Shop
+p = "Olá #{@booking.user.name}."
+p = "Recebemos seu pedido de reserva realizado em #{@booking.date}"
+
+h2 Informações do pedido:
+p = "- Pedido no. #{@booking.id}"
+
+table class="table table-striped"
+  thead
+    tr
+      th Minion
+      th Quantidade
+  tbody
+    - @booking.booking_items.each do |item|
+      tr
+        td
+          = item.product.name
+        td
+          = item.quantity
